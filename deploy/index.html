@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Индикации талисманов FunTime — Инструкция</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #1b1b1b, #2c2c2c);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(45deg, #1f4037, #99f2c8);
+}
+
+header h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 22px;
+    animation: fadeDown 1.2s ease;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.step {
+    background: #262626;
+    border: 4px solid #3a3a3a;
+    padding: 25px;
+    margin-bottom: 60px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.6s ease;
+}
+
+.step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.step h2 {
+    color: #55ff55;
+}
+
+.minecraft-ui {
+    background: #3c3c3c;
+    border: 6px solid #2a2a2a;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.pack-list {
+    background: #2b2b2b;
+    padding: 10px;
+    border: 3px solid #1a1a1a;
+}
+
+.pack {
+    background: #444;
+    padding: 10px;
+    margin: 6px 0;
+    border: 2px solid #000;
+    transition: 0.3s;
+}
+
+.pack:hover {
+    background: #555;
+}
+
+.pack.highlight {
+    background: #2ecc71;
+    color: #000;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+.arrow {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    font-size: 30px;
+    animation: moveArrow 1.2s infinite alternate;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #55ff55;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: #3ecc3e;
+    transform: scale(1.05);
+}
+
+/* Анимации */
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px #2ecc71; }
+    50% { box-shadow: 0 0 20px #2ecc71; }
+    100% { box-shadow: 0 0 5px #2ecc71; }
+}
+
+@keyframes moveArrow {
+    from { transform: translateX(0); }
+    to { transform: translateX(-10px); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Индикации талисманов FunTime</h1>
+</header>
+
+<div class="container">
+
+    <div class="step">
+        <h2>Шаг 1. Скачать ServerPackUnlocker</h2>
+        <p>Скачайте мод ServerPackUnlocker.</p>
+        <a href="#" class="download-btn">Скачать мод</a>
+    </div>
+
+    <div class="step">
+        <h2>Шаг 2. Переместить ресурспак выше серверного</h2>
+
+        <div class="minecraft-ui">
+            <div class="pack-list">
+                <div class="pack">Server Resource Pack</div>
+                <div class="pack highlight">
+                    Индикации талисманов FunTime
+                </div>
+                <div class="pack">Другой ресурспак</div>
+            </div>
+            <div class="arrow">⬆</div>
+        </div>
+    </div>
+
+    <div class="step">
+        <h2>Шаг 3. Зайти на сервер FunTime 1.21</h2>
+        <div class="minecraft-ui">
+            <div class="pack">FunTime | Версия 1.21</div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+© 2026 Индикации талисманов FunTime
+</footer>
+
+<script>
+// Появление блоков при скролле
+const steps = document.querySelectorAll('.step');
+
+function showOnScroll() {
+    const trigger = window.innerHeight * 0.85;
+
+    steps.forEach(step => {
+        const top = step.getBoundingClientRect().top;
+        if(top < trigger) {
+            step.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', showOnScroll);
+window.addEventListener('load', showOnScroll);
+</script>
+
+</body>
+</html>
